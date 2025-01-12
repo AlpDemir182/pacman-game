@@ -8,6 +8,8 @@ screen_height = 400
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Pacman Game by Alp")
 
+pacman_image = pygame.image.load("pacman/pacman.png")
+pacman_image = pygame.transform.scale(pacman_image, (40,40))
 class Pacman():
     def __init__(self, x, y):
         self.x = x
@@ -16,7 +18,8 @@ class Pacman():
         self.radius = 20
 
     def draw(self):
-        pygame.draw.circle(screen, "yellow", (self.x, self.y), self.radius)
+        # pygame.draw.circle(screen, "yellow", (self.x, self.y), self.radius)
+        screen.blit(pacman_image, (self.x - 20, self.y - 20))
 
     def move(self, keys):
         if keys[pygame.K_UP]:
